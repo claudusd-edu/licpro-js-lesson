@@ -1,0 +1,8 @@
+{
+  "name": "Pratice1",
+  "description": "Pratice 1",
+  "dependencies": {
+    "exports-loader": "^0.6.2",
+    "uglify-loader": "^1.3.0",
+  }
+}
