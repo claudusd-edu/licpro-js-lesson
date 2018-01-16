@@ -11,10 +11,14 @@ import {
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
+// Prism
+import langHttp from "prismjs/components/prism-http";
+import langBash from "prismjs/components/prism-bash";
+
 // Require CSS
 require("normalize.css");
 
-const theme = createTheme({
+let theme = createTheme({
   primary: "white",
   secondary: "#1F2022",
   tertiary: "#03A9FC",
@@ -23,6 +27,22 @@ const theme = createTheme({
   primary: "Montserrat",
   secondary: "Helvetica"
 });
+
+theme = {
+  ...theme,
+  screen: {
+    ...theme.screen,
+      components: {
+        ...theme.screen.components,
+        codePane: {
+          ...theme.screen.components.code,
+          fontSize: '90%',
+        }
+      }
+  }
+}
+
+import { theme as themeSolarizedLight } from "spectacle-theme-solarized-light";
 
 const images = {
   youCanUse: require('../assets/you-can-use.jpeg'),
@@ -33,7 +53,7 @@ const images = {
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentHeight="728" contentWidth="1024">
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} >
             Javascript
@@ -132,7 +152,11 @@ export default class Presentation extends React.Component {
             </List>
           </Appear>
           <Notes>
-            <div>Brendan Eich avril 1995 Netscape, 1998, 2003 fin de netscape navigator par AOL, 2014 quitte Mozzila et travail sur Brave</div>
+            <div>Brendan Eich avril 1995 Netscape,
+              1998,
+              2003 fin de netscape navigator par AOL,
+              2014 quitte Mozzila et travail sur Brave
+            </div>
           </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -561,7 +585,7 @@ export default class Presentation extends React.Component {
           <Heading size={1} caps>WebPack</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>PackageManager</Heading>
+          <Heading size={1} caps>Package Manager</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>NPM</Heading>
@@ -578,7 +602,219 @@ export default class Presentation extends React.Component {
             overflow = "overflow"
             />
         </Slide>
-        
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Lesson 2</Heading>
+          <Heading size={2} caps>NodeJS</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            From Server to Browser...
+          </Heading>
+          <Notes>
+            <div>On server for HTTP Server</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            How it's work ?
+          </Heading>
+          <Notes>
+            <div>Interprété + JIT</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={2}>
+              Engines
+            </Heading>
+            <Notes>
+              <div>Plusieur implémentation = plusieur moteur</div>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={2}>
+              Chrome's V8 Engine
+            </Heading>
+            <Notes>
+              <div>Open Source</div>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            NodeJS
+          </Heading>
+          <Notes>
+            <div>Write in C++</div>
+            <div>One Thread</div>
+            <div>Asynchronous I/O</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Module
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            dal.js
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            function.js
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            require('http')
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            main.js
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="js"
+            source="node main.js"
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            HTTP
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            request
+          </Heading>
+          <CodePane
+            lang="http"
+            source={require('raw-loader!../assets/l2-example/5.http')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <CodePane
+              lang="js"
+              source={require('raw-loader!../assets/l2-example/6.js')}
+              margin="20px auto"
+              overflow = "overflow"
+              />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="http"
+            source={require('raw-loader!../assets/l2-example/5.http')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <CodePane
+              lang="js"
+              source={require('raw-loader!../assets/l2-example/7.js')}
+              margin="20px auto"
+              overflow = "overflow"
+              />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="http"
+            source={require('raw-loader!../assets/l2-example/5.http')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <CodePane
+              lang="js"
+              source={require('raw-loader!../assets/l2-example/8.js')}
+              margin="20px auto"
+              overflow = "overflow"
+              />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="http"
+            source={require('raw-loader!../assets/l2-example/9.http')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <CodePane
+              lang="js"
+              source={require('raw-loader!../assets/l2-example/10.js')}
+              margin="20px auto"
+              overflow = "overflow"
+              />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/11.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            require('child_proces')
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="bash"
+            source={require('raw-loader!../assets/l2-example/12.bash')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Controlleur
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Routeur
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Middleware
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Express
+          </Heading>
+        </Slide>
       </Deck>
     );
   }

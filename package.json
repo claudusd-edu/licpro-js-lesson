@@ -19,7 +19,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "spectacle": "^4.0.4",
-    "spectacle-renderer": "^0.0.3"
+    "spectacle-renderer": "^0.0.3",
+    "spectacle-theme-solarized-light": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

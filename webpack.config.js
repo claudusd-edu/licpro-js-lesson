@@ -26,7 +26,7 @@ module.exports = {
       loader: "html-loader!markdown-loader?gfm=false"
     }, {
       test: /\.(js|jsx)$/,
-      exclude: [/node_modules/, /l1-example/], 
+      exclude: [/node_modules/, /l1-example/, /l2-example/], 
       loader: "babel-loader",
       include: __dirname
     }, {
