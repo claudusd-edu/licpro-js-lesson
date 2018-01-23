@@ -31,13 +31,13 @@ module.exports = {
       loader: "html-loader!markdown-loader?gfm=false"
     }, {
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: [/node_modules/, /l1-example/, /l2-example/, /l3-example/],
       loader: "babel-loader"
     }, {
       test: /\.css$/,
       loader: "style-loader!css-loader"
     }, {
-      test: /\.(png|jpg|gif)$/,
+      test: /\.(png|jpg|jpeg|gif)$/,
       loader: "url-loader?limit=8192"
     }, {
       test: /\.svg$/,

@@ -8,6 +8,8 @@ import {
   TableBody, TableHeader, TableHeaderItem, TableItem, TableRow, Table, Text, GoToAction, Notes
 } from "spectacle";
 
+import CodeSlide from 'spectacle-code-slide';
+
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
@@ -15,7 +17,10 @@ import createTheme from "spectacle/lib/themes/default";
 import langHttp from "prismjs/components/prism-http";
 import langBash from "prismjs/components/prism-bash";
 
+
 // Require CSS
+
+require("prismjs/themes/prism-solarizedlight.css")
 require("normalize.css");
 
 let theme = createTheme({
@@ -42,18 +47,63 @@ theme = {
   }
 }
 
-import { theme as themeSolarizedLight } from "spectacle-theme-solarized-light";
+//import { theme as themeSolarizedLight } from "spectacle-theme-solarized-light";
 
 const images = {
   youCanUse: require('../assets/you-can-use.jpeg'),
-  babelMeme: require('../assets/babel_meme.jpg')
+  babelMeme: require('../assets/babel_meme.jpg'),
+  component: require('../assets/component.png'),
+  component1: require('../assets/component1.png'),
+  component2: require('../assets/component2.png'),
+  component3_1: require('../assets/component3-1.png'),
+  component3_2: require('../assets/component3-2.png'),
+  component4: require('../assets/component4.png'),
+  component5: require('../assets/component5.png'),
 };
 
+class Example3_1 extends React.Component {
+  changeColor(color) {
+    const elem = document.getElementById("examplel3-1");
+    elem.style.color = color;
+  }
+
+  render() {
+    return (
+      <div>
+        <p id="examplel3-1">Un peu de texte.</p>
+        <button onClick={() => this.changeColor('blue')}>bleu</button>
+        <button onClick={() => this.changeColor('red')}>rouge</button>
+      </div>
+    )
+  }
+}
+
+class Example3_3 extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state =  {color: 'green'};
+  }
+
+  changeColor(color) {
+    this.setState({color: color});
+  }
+
+  render() {
+    const style = { color: this.state.color };
+    return (
+      <div>
+        <p style={ style }>{this.props.text}</p>
+        <button onClick={() => this.changeColor('blue')}>bleu</button>
+        <button onClick={() => this.changeColor('red')}>rouge</button>
+      </div>
+    )
+  }
+}
 
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentHeight="728" contentWidth="1024">
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} >
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} >
             Javascript
@@ -814,6 +864,390 @@ export default class Presentation extends React.Component {
           <Heading size={1}>
             Express
           </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Lesson 3</Heading>
+          <Heading size={2} caps>UI</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            HTML 5.x
+          </Heading>
+          <Notes>
+            <div>Normé pas le W3C</div>
+            <div>5.2 out, draf HTML 5.3</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="html"
+            source={require('raw-loader!../assets/l3-example/1.html')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+          Browser Engine
+          </Heading>
+          <Notes>
+            <div>Read HTML</div>
+            <div>Compute render</div>
+            <div>Draw</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM
+          </Heading>
+          <Notes>
+            <div>Document Object Model</div>
+            <div>Tree of element</div>
+            <div>W3C</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Layout>
+            <Fill>
+              <Table>
+                <TableHeader>
+                  <TableRow s="bold">
+                    <TableHeaderItem>Window</TableHeaderItem>
+                    <TableHeaderItem>Mouse</TableHeaderItem>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableItem>onabort</TableItem>
+                    <TableItem>onclick</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onerror</TableItem>
+                    <TableItem>ondblclick</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onload</TableItem>
+                    <TableItem>onmousedown</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onbeforeunload</TableItem>
+                    <TableItem>onmousemove</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onunload</TableItem>
+                    <TableItem>onmouseout</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onresize</TableItem>
+                    <TableItem>onmouseover</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onabort</TableItem>
+                    <TableItem>onmouseup</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onabort</TableItem>
+                    <TableItem>onscroll</TableItem>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Fill>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Layout>
+            <Fill>
+              <Table>
+                <TableHeader>
+                  <TableRow s="bold">
+                    <TableHeaderItem>Form</TableHeaderItem>
+                    <TableHeaderItem>Keyboard</TableHeaderItem>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableItem>onblur</TableItem>
+                    <TableItem>onkeydown</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onchange</TableItem>
+                    <TableItem>onkeypress</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onfocus</TableItem>
+                    <TableItem>onkeyup</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onreset</TableItem>
+                    <TableItem>onmousemove</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onselect</TableItem>
+                    <TableItem>onmouseout</TableItem>
+                  </TableRow>
+                  <TableRow>
+                    <TableItem>onsubmit</TableItem>
+                    <TableItem>onmouseover</TableItem>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Fill>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM API
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="html"
+            source={require('raw-loader!../assets/l3-example/2.html')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Example3_1 />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            Touching the DOM is Evil
+          </Heading>
+          <List>
+            <ListItem>It's Hard to test</ListItem>
+            <ListItem>It's expensive</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Server Rendering
+          </Heading>
+        </Slide>
+        <Slide>
+          <List>
+            <ListItem>Load 1 HTML</ListItem>
+            <ListItem>Load X CSS</ListItem>
+            <ListItem>Load X JS</ListItem>
+            <ListItem>Load X Picture</ListItem>
+          </List>
+          <Notes>
+            <div>On each Page, load X element, draw 1 page</div>
+            <div>Limit X load in parallal</div>
+            <div>Network is slow</div>
+            <div>Cache some data</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            SPA
+          </Heading>
+          <Notes>
+            <div>Single Page Application</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <List>
+            <ListItem>Load 1 HTML</ListItem>
+            <ListItem>Load X CSS</ListItem>
+            <ListItem>Load X JS</ListItem>
+            <ListItem>Load X Picture</ListItem>
+          </List>
+          <Notes>
+            <div>Load html, js, css</div>
+            <div>Create veiw</div>
+            <div>After juste load data</div>
+            <div>Cache app in browser</div>
+          </Notes>
+        </Slide>
+        <Slide>
+          <Heading size={2}>
+            Why ?
+          </Heading>
+          <Notes>
+            <div>Faster and more user friendly</div>
+          </Notes>
+        </Slide>
+        <Slide>
+          <List>
+            <ListItem>Angular 5.2</ListItem>
+            <ListItem>VueJS 2.5</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            ReactJS 16.2
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <List>
+            <ListItem>Open Source (MIT)</ListItem>
+            <ListItem>Facebook</ListItem>
+            <ListItem>library view oriented</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            Component
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <List>
+            <ListItem>Composable</ListItem>
+            <Appear fid="1">
+              <ListItem>Reusable</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Maintainable</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>Testable</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component.replace('/', '')} />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component1.replace('/', '')} />
+          <Appear fid="1">
+            <Heading size={4}>
+              EpisodeComponent
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component2.replace('/', '')} />
+          <Appear fid="1">
+            <Heading size={4}>
+              EpisodeListComponent
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component3_1.replace('/', '')} />
+          <Appear fid="1">
+            <Heading size={4}>
+              EpisodeItemComponent
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component3_2.replace('/', '')} />
+          <Appear fid="1">
+            <Heading size={4}>
+              EpisodeItemComponent
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component4.replace('/', '')} />
+          <Appear fid="1">
+            <Heading size={4}>
+              EpisodeFormComponent
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.component5.replace('/', '')} />
+          <Appear fid="1">
+            <Heading size={4}>
+              ButtonComponent
+            </Heading>
+          </Appear>
+        </Slide>
+        <CodeSlide
+          transition={["fade"]}
+          lang="jsx"
+          code={require('raw-loader!../assets/l3-example/3.jsx')}
+          ranges={[
+            { loc: [0, 5] },
+            { loc: [6, 9] },
+            { loc: [10, 20] }
+          ]}
+          />
+        <Slide transition={["fade"]} bgColor="primary">
+          <Example3_3 text="Hello"/>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l3-example/4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="html"
+            source={require('raw-loader!../assets/l3-example/5.html')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            JSX
+          </Heading>
+          <Notes>
+              <div>DSL</div>
+              <div>Babel</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l3-example/6.jsx')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l3-example/7.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            Lifecycle and API
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <List>
+            <ListItem>
+              componentWillMount
+            </ListItem>
+            <ListItem>
+              componentDidMount
+            </ListItem>
+            <ListItem>
+              componentWillUnmount
+            </ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            Virtual DOM
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <List>
+            <ListItem>
+              In-memory representation of the DOM
+            </ListItem>
+            <ListItem>
+              render is call at every change of state
+            </ListItem>
+            <ListItem>
+              React update the reald DOM
+            </ListItem>
+            <ListItem>
+              It's Fast
+            </ListItem>
+          </List>
         </Slide>
       </Deck>
     );

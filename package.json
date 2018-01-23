@@ -19,6 +19,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "spectacle": "^4.0.4",
+    "spectacle-code-slide": "0.5.2",
     "spectacle-renderer": "^0.0.3",
     "spectacle-theme-solarized-light": "^1.0.0"
   },
