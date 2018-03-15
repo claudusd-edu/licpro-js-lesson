@@ -1249,6 +1249,47 @@ export default class Presentation extends React.Component {
             </ListItem>
           </List>
         </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Lesson 4</Heading>
+          <Heading size={2} caps>CSS</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Bootstrap 4.0
+          </Heading>
+          <Notes>
+            <div>Made by twitter, other  : foundation</div>
+            <div>Write in scss</div>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Lesson 5</Heading>
+          <Heading size={2} caps>Testing</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Jasmine
+          </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Frisby
+          </Heading>
+          <Nodes>
+            <div>Testing your api</div>
+          </Nodes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2}>
+            Jest
+          </Heading>
+          <Notes>
+            <div>Testing your components</div>
+          </Notes>
+        </Slide>
       </Deck>
     );
   }
