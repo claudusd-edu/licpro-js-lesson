@@ -82,6 +82,11 @@ class Example3_3 extends React.Component {
   constructor(props) {
     super(props)
     this.state =  {color: 'green'};
+    this.changeColorBlue = this.changeColorBlue.bind(this);
+  }
+
+  changeColorBlue() {
+    this.setState({color: 'blue'});
   }
 
   changeColor(color) {
@@ -93,7 +98,7 @@ class Example3_3 extends React.Component {
     return (
       <div>
         <p style={ style }>{this.props.text}</p>
-        <button onClick={() => this.changeColor('blue')}>bleu</button>
+        <button onClick={this.changeColorBlue}>bleu</button>
         <button onClick={() => this.changeColor('red')}>rouge</button>
       </div>
     )
@@ -1278,9 +1283,9 @@ export default class Presentation extends React.Component {
           <Heading size={2}>
             Frisby
           </Heading>
-          <Nodes>
+          <Notes>
             <div>Testing your api</div>
-          </Nodes>
+          </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={2}>
