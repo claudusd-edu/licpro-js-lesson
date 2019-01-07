@@ -23,6 +23,7 @@ import langBash from "prismjs/components/prism-bash";
 require("prismjs/themes/prism-solarizedlight.css")
 require("normalize.css");
 
+
 let theme = createTheme({
   primary: "white",
   secondary: "#1F2022",
@@ -60,6 +61,8 @@ const images = {
   component4: require('../assets/component4.png'),
   component5: require('../assets/component5.png'),
 };
+
+
 
 class Example3_1 extends React.Component {
   changeColor(color) {
@@ -108,7 +111,7 @@ class Example3_3 extends React.Component {
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} >
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} progress="number">
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} >
             Javascript
@@ -137,7 +140,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} caps>Contact</Heading>
             <List>
-              <ListItem>licpro2018@dioudonnat.fr</ListItem>
+              <ListItem>licpro2019@dioudonnat.fr</ListItem>
               <ListItem>claude@dioudonnat.fr</ListItem>
               <ListItem>claudusd</ListItem>
             </List>
@@ -160,10 +163,10 @@ export default class Presentation extends React.Component {
           <Heading size={1} caps>How ?</Heading>
           <List>
             <Appear fid="1">
-              <ListItem>8H of Lecture</ListItem>
+              <ListItem>14H of Lecture</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>16H of Pratical</ListItem>
+              <ListItem>20H of Pratical</ListItem>
             </Appear>
             <Appear fid="3">
               <ListItem>Test</ListItem>
@@ -181,9 +184,33 @@ export default class Presentation extends React.Component {
             </ul>
           </Notes>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide transition={["fade"]} bgColor="primary" id="lesson_list">
+          <GoToAction slide="lesson1">Lesson 1</GoToAction>
+          <GoToAction slide="lesson2">Lesson 2</GoToAction>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary" id="lesson1">
           <Heading size={1} caps>Lesson 1</Heading>
-          <Heading size={2} caps>ECMASscript 2015</Heading>
+          <Heading size={2} caps>History, JS, and NPM</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>1990</Heading>
+          <Heading size={5}>Wolrd Wide Web</Heading>
+          <Heading size={4}>Tim Berners-Lee</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={1} caps>Browser</Heading>
+            <List>
+              <ListItem>1993 NCSA Mosaic</ListItem>
+              <ListItem>1995 Netscape Navigator</ListItem>
+              <ListItem>1995 Internet Explorer 1</ListItem>
+              <ListItem>2004 Firefox 1</ListItem>
+              <ListItem>2008 Goolge Chrome</ListItem>
+              <ListItem>2015 Microsoft Edge</ListItem>
+              <ListItem>...</ListItem>
+            </List>
+            <Notes>
+              Guerre des Navigateur dans les année 2000
+            </Notes>
         </Slide>
         <Slide>
           <Heading size={1} caps>Why Javascript ?</Heading>
@@ -201,46 +228,29 @@ export default class Presentation extends React.Component {
           <Heading size={1} caps>Long Time Ago</Heading>
           <Appear fid="1">
             <List>
-              <ListItem>LiveScript May 199</ListItem>
+              <ListItem>LiveScript May 1995</ListItem>
               <ListItem>Brendan Eich</ListItem>
               <ListItem>Server</ListItem>
             </List>
           </Appear>
           <Notes>
-            <div>Brendan Eich avril 1995 Netscape,
-              1998,
-              2003 fin de netscape navigator par AOL,
-              2014 quitte Mozzila et travail sur Brave
-            </div>
+            Brendan Eich
+            <ul>
+              <li>avril 1995, il rejoint Netscape</li>
+              <li>1998, il rejoint Mozilla</li>
+              <li>2003, fin de netscape navigator par AOL</li>
+              <li>2014 quitte Mozzila et travail sur Brave</li>
+            </ul>
           </Notes>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1}>1990</Heading>
-          <Heading size={5}>Wolrd Wide Web</Heading>
-          <Heading size={4}>Tim Berners-Lee</Heading>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={1} caps>Browser</Heading>
-            <List>
-              <ListItem>1993 NCSA Mosaic</ListItem>
-              <ListItem>1995 Netscape Navigator</ListItem>
-              <ListItem>1995 Internet Explorer 1</ListItem>
-              <ListItem>2004 Firefox 1</ListItem>
-              <ListItem>2008 Goolge Chrome</ListItem>
-              <ListItem>...</ListItem>
-            </List>
-            <Notes>
-              Guerre des Navigateur dans les année 2000
-            </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <List>
               <ListItem>LiveScript -> Javascript</ListItem>
               <ListItem>March 1996 Netscape Navigator 2.0</ListItem>
-              <Appear fit="1">
+              <Appear>
                 <ListItem>JScript By Microsoft</ListItem>
-                </Appear>
-                <Appear fir="1">
+              </Appear>
+                <Appear>
                 <ListItem>August 1996 Internet Explorer 3.0</ListItem>
               </Appear>
             </List>
@@ -254,8 +264,9 @@ export default class Presentation extends React.Component {
             </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Specification ECMA-262</Heading>
+          <Heading size={1} caps>ECMA-262</Heading>
           <Table>
+            <TableBody>
               <TableRow>
                 <TableItem>June 1997</TableItem>
                 <TableItem>ES1</TableItem>
@@ -265,7 +276,7 @@ export default class Presentation extends React.Component {
                 <TableItem>ES2</TableItem>
               </TableRow>
               <TableRow>
-                <TableItem>JDecember 1999</TableItem>
+                <TableItem>December 1999</TableItem>
                 <TableItem>ES3</TableItem>
               </TableRow>
               <TableRow>
@@ -281,16 +292,46 @@ export default class Presentation extends React.Component {
                 <TableItem>ES6</TableItem>
               </TableRow>
               <TableRow>
-                <TableItem>WIP</TableItem>
+                <TableItem>June 2016</TableItem>
                 <TableItem>ES7</TableItem>
               </TableRow>
+              <TableRow>
+                <TableItem>June 2017</TableItem>
+                <TableItem>ES8</TableItem>
+              </TableRow>
+              <TableRow>
+                <TableItem>June 2018</TableItem>
+                <TableItem>ES9</TableItem>
+              </TableRow>
+              <TableRow>
+                <TableItem>Current</TableItem>
+                <TableItem>ES Next</TableItem>
+              </TableRow>
+            </TableBody>
           </Table>
-          <Notes>ES4 Abandonnée</Notes>
+          <Notes>
+            <ul>
+              <li>Une Specifications, plusieurs implémantations</li>
+              <li>ES4 Abandonnée</li>
+              <li>Chaque édition apporte de nouvelle fonctionnalitée.</li>
+            </ul>
+          </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Image src={images.youCanUse.replace('/', '')} />
-            <Appear fit="1">
-              <Text size={6} textColor="secondary"><a class="fragment" href="http://kangax.github.io/compat-table/es6/">*Under Conditions...</a></Text>
+            <div>
+              <Image src={images.youCanUse.replace('/', '')} />
+            </div>
+            <Appear order={1}>
+              <div>
+                <Text size={8} textColor="primary">
+                  <a
+                    className="fragment"
+                    href="http://kangax.github.io/compat-table/es6/"
+                  >
+                    *Under Conditions...
+                  </a>
+                </Text>
+              </div>
             </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -303,92 +344,76 @@ export default class Presentation extends React.Component {
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Layout>
-            <Fill>
-              <Table>
-                <TableHeader>
-                  <TableRow s="bold">
-                    <TableHeaderItem>Type</TableHeaderItem>
-                    <TableHeaderItem>Result</TableHeaderItem>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableItem>Undefined</TableItem>
-                    <TableItem>"undefined"</TableItem>
-                    <TableItem>
-                      <CodePane
-                        lang="jsx"
-                        source="var foo;"
-                        margin="20px auto"
-                        overflow = "overflow"
-                        />
-                    </TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem>Null / Object</TableItem>
-                    <TableItem>"object"</TableItem>
-                    <TableItem>
-                      <CodePane
-                        lang="jsx"
-                        source="var foo = {}; var foo = null;"
-                        margin="20px auto"
-                        overflow = "overflow"
-                        />
-                    </TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem>Boolean</TableItem>
-                    <TableItem>"boolean"</TableItem>
-                    <TableItem>
-                      <CodePane
-                        lang="jsx"
-                        source="var foo = true;"
-                        margin="20px auto"
-                        overflow = "overflow"
-                        />
-                    </TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem>Number</TableItem>
-                    <TableItem>"number"</TableItem>
-                    <TableItem>
-                      <CodePane
-                        lang="jsx"
-                        source="var foo= 5;"
-                        margin="20px auto"
-                        overflow = "overflow"
-                        />
-                    </TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem>String</TableItem>
-                    <TableItem>string</TableItem>
-                    <TableItem>
-                      <CodePane
-                        lang="jsx"
-                        source="var foo = 'yolo';"
-                        margin="20px auto"
-                        overflow = "overflow"
-                        />
-                    </TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem>Function object</TableItem>
-                    <TableItem>"function"</TableItem>
-                    <TableItem>
-                      <CodePane
-                        lang="jsx"
-                        source="var foo = () => { }"
-                        margin="20px auto"
-                        overflow = "overflow"
-                        />
-                    </TableItem>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Fill>
-          </Layout>
+          <CodePane
+            lang="jsx"
+            source="var foo;
+typeof foo;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              undefined
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo == undefined;"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source="var foo = true;
+typeof foo;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              boolean
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo == true;"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source="var foo = 5;
+typeof foo;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              number
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo == 5;"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} caps>Number</Heading>
@@ -400,30 +425,402 @@ export default class Presentation extends React.Component {
               />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={1} caps>Context</Heading>
+          <CodePane
+            lang="jsx"
+            source="var foo = 'hi';
+typeof foo;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              string
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo == 'hi';"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={1} caps>String</Heading>
             <CodePane
-              lang="jsx"
-              source={require('raw-loader!../assets/l1-example/3.js')}
+              lang="js"
+              source={require('raw-loader!../assets/l1-example/27.js')}
               margin="20px auto"
               overflow = "overflow"
               />
-              <Notes>Result : inside</Notes>
+              <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String">
+              Documentation
+              </a>
+              <Notes>
+                <ul>
+                  <li>il existe beaucoups d'autre fonction dans la spec</li>
+                </ul>
+              </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={1} caps>Context</Heading>
-            <CodePane
-              lang="jsx"
-              source={require('raw-loader!../assets/l1-example/4.js')}
-              margin="20px auto"
-              overflow = "overflow"
+          <CodePane
+            lang="jsx"
+            source="var foo = null;
+foo == null;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              null
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo !== undefined;"
+                margin="20px auto"
+                overflow = "overflow"
               />
-              <Notes>Result :  inside, outside</Notes>
+            </div>
+          </Appear>
+          <Notes>
+            <ul>
+              <li>Le typeof return "object"</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source="var foo = function () { };
+typeof foo;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              function
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo != function () { };"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Function</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/function-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Paramètre et valeur de retour non typé.</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Function</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/function-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Même que précédement</li>
+                <li>Utilisation d'une fonction anonyme affecté à la variable</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Function</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/function-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Même que précédement</li>
+                <li>Utilisation d'une fonction fléchée (arrow function) affecté à la variable</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source="var foo = [];
+Array.isArry(foo);"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              array
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo != [];"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
+          <Notes>
+            <ul>
+              <li>typeof de array return object</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Array</Heading>
+          <CodePane
+            lang="jsx"
+            source="let foo = ['A', 'B'];
+console.log(foo[0]);
+foo.push('C');
+console.log(foo.length);"
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array">
+            Documentation
+            </a>
+            <Notes>
+              <ul>
+                <li>Des methodes sur les array</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source="var foo = {};
+typeof foo;"
+            margin="20px auto"
+            overflow = "overflow"
+          />
+          <Appear order={1} >
+            <Heading size={1} fit>
+              object
+            </Heading>
+          </Appear>
+          <Appear order={2} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo != {};"
+                margin="20px auto"
+                overflow = "overflow"
+              />
+            </div>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Object</Heading>
+          <CodePane
+            lang="jsx"
+            source="let foo = {firstName: 'Claude'};
+console.log(foo.firstName);
+foo.lastName = 'Dioudonnat';
+console.log(foor.lastName);"
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Utilisation de let à la place de const</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Object</Heading>
+          <CodePane
+            lang="jsx"
+            source="foo.job = {title:'Dev', company: 'ITN'}"
+            margin="20px auto"
+            overflow = "overflow"
+            />
+          <Appear order={1} >
+            <div>
+              <CodePane
+                lang="jsx"
+                source="foo.job.company"
+                margin="20px auto"
+                overflow = "overflow"
+                />
+            </div>
+          </Appear>
+            <Notes>
+              <ul>
+                <li>Sous objet</li>
+                <li>Comment accèder à company ?</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Object destructuring</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/object-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Utilisation de const</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Object destructuring</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/object-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <a href="http://exploringjs.com/es6/ch_destructuring.html">More</a>
+            <Notes>
+              <ul>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>JSON</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/object-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Appear order={2} >
+              <div>
+                <CodePane
+                  lang="json"
+                  source={require('raw-loader!../assets/l1-example/json-1.json')}
+                  margin="20px auto"
+                  overflow = "overflow"
+                />
+              </div>
+            </Appear>
+            <Notes>
+              <ul>
+                <li>Transformer un objet en son annotation json</li>
+                <li>La function est pas présente.</li>
+                <li>Le JSON c'est du text</li>
+                <li>Atention à la syntax</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>JSON</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/object-4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Pourquoi le JSON, et pas le XML</li>
+                <li>Simple d'utiliser donc du JSON depuis une API</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Class</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/class-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Class</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/class-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Class</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/class-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Un avis sur la syntax</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Class</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/class-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Depuis ES6</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Class</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/class-4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Depuis ES6</li>
+                <li>Attention, ce n'est pas de la vrai POO</li>
+              </ul>
+            </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Syntax</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/5.js')}
+            source={require('raw-loader!../assets/l1-example/syntax-1.js')}
             margin="20px auto"
             overflow = "overflow"
             />
@@ -432,28 +829,24 @@ export default class Presentation extends React.Component {
           <Heading size={1} caps>Syntax</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/6.js')}
+            source={require('raw-loader!../assets/l1-example/syntax-2.js')}
             margin="20px auto"
             overflow = "overflow"
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Syntax</Heading>
+          <Heading size={1} caps>Error</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/7.js')}
+            source={require('raw-loader!../assets/l1-example/error-1.js')}
             margin="20px auto"
             overflow = "overflow"
             />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Syntax</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/8.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
+            <Notes>
+            <ul>
+              <li>instanceof pour connître le type de notre class</li>
+            </ul>
+            </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Errors</Heading>
@@ -468,118 +861,189 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Errors</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/error-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+            <ul>
+              <li>Vous pouvez créer vos propre erreurs</li>
+            </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Loop</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/9.js')}
+            source={require('raw-loader!../assets/l1-example/loop-1.js')}
             margin="20px auto"
             overflow = "overflow"
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Object</Heading>
+          <Heading size={1} caps>Loop</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/14.js')}
+            source={require('raw-loader!../assets/l1-example/loop-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Loop</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/loop-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Loop</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/loop-4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Template String</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/template_string-1.js')}
             margin="20px auto"
             overflow = "overflow"
             />
             <Notes>
-              Attention à la structure, présentation des "template string"
+              <ul>
+                <li>Utilisation des back quote</li>
+              </ul>
             </Notes>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Object</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/12.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Object</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/13.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Object</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/10.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Object</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/11.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Function</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/15.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-            <Notes>
-              Result : Method : undefined
-            </Notes>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Function</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/16.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Function</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/17.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Function</Heading>
-          <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/l1-example/18.js')}
-            margin="20px auto"
-            overflow = "overflow"
-            />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Context</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/19.js')}
+            source={require('raw-loader!../assets/l1-example/context-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>obj.method = passe la définition de la method</li>
+                <li>obj.method() = Passe la valeur renvoyé par l'execution</li>
+                <li>Result : Method : undefined</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Context</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/context-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>bind permet de binder la method avec l'objet</li>
+                <li>method2 est une copie de method bind sur obj</li>
+                <li>Result : Method : Yolo</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Context</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/context-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Result de method : undefined</li>
+                <li>Result de method1 : A</li>
+                <li>Result de method2 : B</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Context</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/context-4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Garder le context de la method</li>
+                <li>Que retourne u() ?</li>
+                <li>cannot read property a of undefined</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Context</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/context-5.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Bind b avec this</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Callback</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/callback-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>C'est quoi b ?</li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Callback</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/callback-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>Une callback permet de laisser un bout de comportement paramètrable. </li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Promise</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/promise-1.js')}
             margin="20px auto"
             overflow = "overflow"
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Promise</Heading>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Promise</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/20.js')}
+            source={require('raw-loader!../assets/l1-example/promise-2.js')}
             margin="20px auto"
             overflow = "overflow"
             />
@@ -588,7 +1052,7 @@ export default class Presentation extends React.Component {
           <Heading size={1} caps>Promise</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/21.js')}
+            source={require('raw-loader!../assets/l1-example/promise-3.js')}
             margin="20px auto"
             overflow = "overflow"
             />
@@ -615,29 +1079,49 @@ export default class Presentation extends React.Component {
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Module</Heading>
+          <Heading size={1} caps>Module ES6</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/24.js')}
+            source={require('raw-loader!../assets/l1-example/module-1.js')}
             margin="20px auto"
             overflow = "overflow"
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>Module</Heading>
+          <Heading size={1} caps>Module ES6</Heading>
           <CodePane
             lang="jsx"
-            source={require('raw-loader!../assets/l1-example/25.js')}
+            source={require('raw-loader!../assets/l1-example/module-2.js')}
             margin="20px auto"
             overflow = "overflow"
             />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>BabelJS</Heading>
-          <Image src={images.babelMeme.replace('/', '')} />
+          <Heading size={1} caps>Module ES6</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/module-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} caps>WebPack</Heading>
+          <Heading size={1} caps>Module CommonJS</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/module-4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Module CommonJS</Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/l1-example/module-5.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Package Manager</Heading>
@@ -652,12 +1136,42 @@ export default class Presentation extends React.Component {
           <Heading size={1} caps>package.json</Heading>
           <CodePane
             lang="json"
-            source={require('raw-loader!../assets/l1-example/26.json')}
+            source={require('raw-loader!../assets/l1-example/package-1.json')}
             margin="20px auto"
             overflow = "overflow"
             />
+            <CodePane
+              lang="bash"
+              source="npm install
+yarn install"
+              margin="20px auto"
+              overflow = "overflow"
+              />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>package.json</Heading>
+          <CodePane
+            lang="json"
+            source={require('raw-loader!../assets/l1-example/package-2.json')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+          <CodePane
+            lang="bash"
+            source="npm run myCommand
+yarn run myCommand"
+            margin="20px auto"
+            overflow = "overflow"
+            />
+            <Notes>
+              <ul>
+                <li>
+                  --production pour pas installer des dependances de dev
+                </li>
+              </ul>
+            </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary" id="lesson2">
           <Heading size={1} caps>Lesson 2</Heading>
           <Heading size={2} caps>NodeJS</Heading>
         </Slide>
@@ -1198,6 +1712,13 @@ export default class Presentation extends React.Component {
               <div>DSL</div>
               <div>Babel</div>
           </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>BabelJS</Heading>
+          <Image src={images.babelMeme.replace('/', '')} />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>WebPack</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <CodePane

@@ -1,9 +1,8 @@
-var obj = {
+const obj = {
   myText: "Yolo",
   method: function() {
     return `Method : ${this.myText}`
   }
 }
-const method2 = obj.method;
-
-console.log(method2());
+let method2 = obj.method;
+method2();

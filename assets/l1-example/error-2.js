@@ -1,0 +1,1 @@
+class MyCustomError extends Error {}
