@@ -18,9 +18,11 @@
     "normalize.css": "7.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-typist": "^2.0.5",
     "spectacle": "^4.0.4",
     "spectacle-code-slide": "0.5.2",
     "spectacle-renderer": "^0.0.3",
+    "spectacle-terminal": "^0.5.0",
     "spectacle-theme-solarized-light": "^1.0.0"
   },
   "devDependencies": {
