@@ -1,0 +1,1 @@
+res.json({ user: 'tobi' });

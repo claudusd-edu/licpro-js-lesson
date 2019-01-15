@@ -66,6 +66,7 @@ const images = {
   event_loop: require('../assets/images/event_loop.png'),
   http_message: require('../assets/images/http_message.jpg'),
   http_header: require('../assets/images/http_header.jpg'),
+  middleware: require('../assets/images/middleware.png'),
 };
 
 const cursor = { show: false, blink: true, element: "|", hideWhenDone: false, hideWhenDoneDelay: 500 };
@@ -1139,6 +1140,16 @@ console.log(foor.lastName);"
           <Heading size={1} caps>Yarn</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} caps>Init</Heading>
+          <CodePane
+            lang="bash"
+            source="npm init
+yarn init"
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>package.json</Heading>
           <CodePane
             lang="json"
@@ -1278,7 +1289,7 @@ yarn run myCommand"
             source={require('raw-loader!../assets/l1-example/yarn-1.yml')}
             margin="20px auto"
             overflow = "overflow"
-            textSize="18px"
+
             />
           <Notes>
             <ul>
@@ -1415,6 +1426,9 @@ yarn run myCommand"
           <Heading size={1}>
             HTTP
           </Heading>
+          <a href="https://nodejs.org/docs/latest-v8.x/api/http.html">
+            APIDoc
+          </a>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1}>HTTP</Heading>
@@ -1478,6 +1492,9 @@ yarn run myCommand"
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1}>require('child_process')</Heading>
+          <a href="https://nodejs.org/docs/latest-v8.x/api/child_process.html">
+            APIDoc
+          </a>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <CodePane
@@ -1534,6 +1551,222 @@ yarn run myCommand"
             require('express');
           </Heading>
           <a href="https://www.npmjs.com/package/express">NPM page</a>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Routing
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Routing
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-reponse-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-reponse-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-reponse-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-reponse-4.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-reponse-5.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Response
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-reponse-6.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Middleware
+          </Heading>
+          <Image src={images.middleware.replace('/', '')} />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Middleware
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-middleware-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Router
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-middleware-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Router
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/express-middleware-3.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Middleware
+          </Heading>
+          <ul>
+            <li>express.static</li>
+            <li>express.json</li>
+            <li>
+              <a href="https://expressjs.com/en/resources/middleware/body-parser.html">More</a>
+            </li>
+          </ul>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Async/Await
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/async-await-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Async/Await
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/async-await-2.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Generator
+          </Heading>
+          <CodePane
+            lang="js"
+            source={require('raw-loader!../assets/l2-example/generator-1.js')}
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            Environment Variables
+          </Heading>
+          <CodePane
+            lang="bash"
+            source="PORT=9999 node server.js"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <CodePane
+            lang="js"
+            source="const PORT = process.env.PORT || 3000;"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1}>
+            API Testing
+          </Heading>
+          <CodePane
+            lang="bash"
+            source="yarn add chai chai-http mocha"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <CodePane
+            lang="js"
+            source="const PORT = process.env.PORT || 3000;"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} caps>Lesson 3</Heading>
