@@ -194,6 +194,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary" id="lesson_list">
           <GoToAction slide="lesson1">Lesson 1</GoToAction>
           <GoToAction slide="lesson2">Lesson 2</GoToAction>
+          <GoToAction slide="lesson3">Lesson 3</GoToAction>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" id="lesson1">
           <Heading size={1} caps>Lesson 1</Heading>
@@ -1768,7 +1769,7 @@ yarn run myCommand"
             textSize="24"
             />
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide transition={["fade"]} bgColor="primary" id="lesson3">
           <Heading size={1} caps>Lesson 3</Heading>
           <Heading size={2} caps>UI</Heading>
         </Slide>
@@ -1794,9 +1795,11 @@ yarn run myCommand"
           Browser Engine
           </Heading>
           <Notes>
-            <div>Read HTML</div>
-            <div>Compute render</div>
-            <div>Draw</div>
+            <ul>
+              <li>Read HTML</li>
+              <li>Compute render</li>
+              <li>Draw</li>
+            </ul>
           </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -1804,9 +1807,183 @@ yarn run myCommand"
             DOM
           </Heading>
           <Notes>
-            <div>Document Object Model</div>
-            <div>Tree of element</div>
-            <div>W3C</div>
+            <ul>
+              <li>Document Object Model</li>
+              <li>Tree of element</li>
+              <li>W3C</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Window
+          </Heading>
+          <CodePane
+            lang="js"
+            source="console.log(window)
+window.open(....)
+window.navigator"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>C'est toute notre page web</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Navigator
+          </Heading>
+          <CodePane
+            lang="js"
+            source="const navigator = window.navigator
+navigator.userAgent
+navigator.appName"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>Represente notre navigator</li>
+              <li>User Agent ?</li>
+              <li>API USB, location, clipboard ...</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Screen
+          </Heading>
+          <CodePane
+            lang="js"
+            source="screen.availHeight;"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>Represente notre navigator</li>
+              <li>API USB, location, clipboard ...</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM History
+          </Heading>
+          <CodePane
+            lang="js"
+            source="window.history.back();
+window.history.forward();"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>Si l'utilisateur veux pas cliquer sur précédent</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Geolocation
+          </Heading>
+          <CodePane
+            lang="js"
+            source="navigator.geolocation.getCurrentPosition(showPosition);
+function showPosition(position) {
+  console.log(`Latitude: ${position.coords.latitude}
+  Longitude: ${position.coords.longitude}`);
+}"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>Asynx why ?</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Document
+          </Heading>
+          <CodePane
+            lang="js"
+            source="console.log(document);
+document.body"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li></li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Element
+          </Heading>
+          <CodePane
+            lang="js"
+            source="elem.children;
+element.className
+element.id
+element.nodeName"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li></li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            Find in DOM
+          </Heading>
+          <CodePane
+            lang="js"
+            source="const ul = document.getElementById('my_ul');
+const li = ul.getElementsByTagName('li');
+const liActive = ul.getElementsByClassName('active')"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>getElementsByTagName retourne une list</li>
+            </ul>
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={3}>
+            DOM Edit
+          </Heading>
+          <CodePane
+            lang="js"
+            source="const ul = document.getElementById('my_ul');
+ul.removeChild(list.childNodes[0])"
+            margin="20px auto"
+            overflow = "overflow"
+            textSize="24"
+            />
+          <Notes>
+            <ul>
+              <li>getElementsByTagName retourne une list</li>
+            </ul>
           </Notes>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -2138,6 +2315,7 @@ yarn run myCommand"
             </ListItem>
           </List>
         </Slide>
+
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={3}>
             Virtual DOM
